@@ -1,14 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import StyledText from "./src/components/StyledText";
-import StyledButton from "./src/componentes/StyledButton";
+import StyledText from "./src/componentes/StyledText/textstyle";
+import StyledButton from "./src/componentes/StyledButton/buttonstyl"; 
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <StyledText text="Texto y boton personalizado" />
-      <StyledButton text="Personalizado" />
+      <StyledButton title="Personalizado" />
       <StyledText text="Texto personalizado boton normal" />
       <TouchableOpacity style={styles.button} onPress={() => console.log('hola')}>
         <Text style={styles.text}>Presionar</Text>
@@ -33,10 +33,3 @@ const styles = StyleSheet.create({
     padding: 2,
   }
 });
-//cada componento siempre debe empezar con una letra mayuscula y usar camelcase si es mas de una palabra
-//el view es como un div y el text como un parrafo
-//style controla el estilo aunque ya viene con displayflex integrado el view
-//la forma correcta de dar estilo es con StyleSheet
-//export default solo exporta una cosa asi que es mejor exportar con export cont
-//el styles se puede poner en un archivo styles.js aparte ./styles
-
