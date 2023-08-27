@@ -1,13 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import StyledText from "./src/components/StyledText";
+import StyledButton from "./src/componentes/StyledButton";
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <StyledText text="hola" />
-      <StyledText text="hola" />
+      <StyledText text="Texto y boton personalizado" />
+      <StyledButton text="Personalizado" />
+      <StyledText text="Texto personalizado boton normal" />
       <TouchableOpacity style={styles.button} onPress={() => console.log('hola')}>
         <Text style={styles.text}>Presionar</Text>
       </TouchableOpacity>

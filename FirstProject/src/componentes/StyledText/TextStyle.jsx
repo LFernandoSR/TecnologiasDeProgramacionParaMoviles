@@ -11,8 +11,10 @@ const StyledText = ({text}) => {
 
 const styles = StyleSheet.create({
   text:{
-    color: "#fff",
-    fontSize: 20
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'Arial'
   }
 })
 
