@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     alignSelf: "center",
-    textTransform: "uppercase"
+    textTransform: "uppercase",
+    marginBottom: 5
   }
 })
 

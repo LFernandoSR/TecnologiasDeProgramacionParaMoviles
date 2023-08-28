@@ -3,7 +3,7 @@ import { StyleSheet, Button, View, TouchableOpacity, Text } from "react-native";
 
 const StyledButton = ({ onPress, title }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
+    <TouchableOpacity onPress={() => console.log('Boton presionado')} style={styles.buttonContainer}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   )
