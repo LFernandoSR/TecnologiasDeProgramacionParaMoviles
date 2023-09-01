@@ -1,80 +1,27 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions, TextInput, FlatList } from "react-native";
-//import Login from "./src/screens/login";
-import Person from "./src/componentes/Person";
+import { StatusBar } from 'expo-status-bar';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import Person from './src/componentes/Person';
+import { DATA } from './src/componentes/DataInfo/lista';
+import { BACKGROUND_IMAGE } from './src/componentes/ImageInfo/info';
 
 export default function App() {
-  const DATA = [
-    {
-      id: 1,
-      nombre: "Fernando",
-      apellido: "Sanchez",
-    },
-    {
-      id: 2,
-      nombre: "Fernando2",
-      apellido: "Sanchez",
-    },
-    {
-      id: 3,
-      nombre: "Fernando3",
-      apellido: "Sanchez",
-    },
-    {
-      id: 4,
-      nombre: "Fernando4",
-      apellido: "Sanchez",
-    },
-    {
-      id: 5,
-      nombre: "Fernando5",
-      apellido: "Sanchez",
-    },
-    {
-      id: 6,
-      nombre: "Fernando6",
-      apellido: "Sanchez",
-    },
-    {
-      id: 7,
-      nombre: "Fernando7",
-      apellido: "Sanchez",
-    },
-    {
-      id: 8,
-      nombre: "Fernando8",
-      apellido: "Sanchez",
-    },
-    {
-      id: 9,
-      nombre: "Fernando9",
-      apellido: "Sanchez",
-    },
-    {
-      id: 10,
-      nombre: "Fernando10",
-      apellido: "Sanchez",
-    },
-  ];
-
   return (
     <View style={styles.container}>
-      {/* <Login/> */}
-      <StatusBar style="auto" backgroundColor="#fff" />
-      {/* {DATA.map(user =>{
-        <ScrollView key={user.id} style={{borderWidth: 1, borderColor: 'red'}}>
-          <Text>{user.nombre}</Text>
-          <Text>{user.apellido}</Text>
-        </ScrollView>
-      })} */}
-      <FlatList
-        data={DATA}
-        renderItem={({ item: { nombre, apellido }, index }) => (
-          <Person nombre={nombre} apellido={apellido} index={index} />
-        )}
-        ItemSeparatorComponent={<Text>Separador</Text>}
-        keyExtractor={({ id }) => id}
-      />
+      <StatusBar style='auto' backgroundColor='#fff' />
+      <Image source={BACKGROUND_IMAGE} style={styles.image} />
+      <View style={{ padding: 10, width: '100%', height: '100%' }}>
+        <Text style={styles.title}>USUARIOS</Text>
+        <FlatList
+          data={DATA}
+          renderItem={({ item: { nombre, apellido, image }, index }) => (
+            <Person nombre={nombre} apellido={apellido} index={index} image={image} />
+          )}
+          ItemSeparatorComponent={
+            <View style={{ height: 5, borderBottomWidth: 2, borderColor: 'white', marginBottom: 5, }} />
+          }
+          keyExtractor={({ id }) => id}
+        />
+      </View>
     </View>
   );
 }
@@ -82,8 +29,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+  },
+  image: {
+    position: 'absolute',
+    resizeMode: 'repeat',
+    width: '100%',
+    height: '100%',
+  },
+  title: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    color: 'red',
+    textAlign: 'center',
+    marginVertical: 10,
   },
 });

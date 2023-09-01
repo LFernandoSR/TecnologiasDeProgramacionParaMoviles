@@ -7,6 +7,4 @@ export const THEME = {
         GREEN_LIGTH: '#63cb77',
         GREEN_DARK: '#176b5b',
     }
-
-
 }
