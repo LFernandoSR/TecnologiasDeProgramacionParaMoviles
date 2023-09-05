@@ -1,18 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, StatusBar as ReactStatus, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
-//safeareaview es como el statusbar pero para ios
+import Home from './src/componentes/screens/login';
 
 export default function App() {
   return (
-    //<SafeAreaView>
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Ionicons name="notifications" size={24} color="black" />
+      <Home/>
       <StatusBar style="auto" />
     </View>
-    //</SafeAreaView>
   );
 }
 
@@ -21,8 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingTop: Constants.statusBarHeight,
-    //paddingTop: ReactStatus.currentHeight,
-    //alignItems: 'center',
-    //justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
