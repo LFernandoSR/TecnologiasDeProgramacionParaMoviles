@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import Card from "../../src/componentes/card";
@@ -102,7 +102,6 @@ const WelcomeScreen = () => {
       </ScrollView>
       <Text style={styles.textHeader}>What are your symptoms?</Text>
       <ScrollView
-        // style={styles.symptomsContainer}
         horizontal
         showsHorizontalScrollIndicator={false}
       >
@@ -115,12 +114,6 @@ const WelcomeScreen = () => {
         <Text style={styles.textHeader}>Popular therapist</Text>
         <Text style={{ color: "#d4d4d7", fontWeight: "bold" }}>See all</Text>
       </View>
-      <Therapist
-        image={IMAGE}
-        name="Dr. Alice Johnson"
-        job="Physiotherapist"
-        rate={5.0}
-      />
       <FlatList
         data={THERAPISTS}
         renderItem={({ item: { image, name, job, rate } }) => (

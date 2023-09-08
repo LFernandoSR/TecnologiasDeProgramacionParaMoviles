@@ -27,8 +27,6 @@ const Therapist = ({ image, name, job, rate }) => {
   
   const styles = StyleSheet.create({
     container: {
-      // borderWidth: 1,
-      // borderColor: "red",
       borderRadius: 10,
       backgroundColor: "#f7f8fa",
       flexDirection: "row",

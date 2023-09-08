@@ -27,7 +27,6 @@ const Card = ({ isDarkBlue, text, iconName, iconType }) => {
             : styles.cardIconContainerLight,
         ]}
       >
-        {/* <AntDesign name="hdd" size={24} color="white" /> */}
         {CustomIcon}
       </View>
       <Text
