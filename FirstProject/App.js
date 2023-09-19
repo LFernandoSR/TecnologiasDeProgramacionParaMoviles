@@ -1,32 +1,53 @@
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, FlatList} from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import Constants from "expo-constants";
-import {useState} from "react";
+import Todo1 from "./src/componentes/Todo";
+import CustomButton from "./src/componentes/CustomButton";
+import TodoInput from "./src/componentes/TodoInput";
 
 export default function App() {
+
+const [inputValue, setInputValue] = useState('');
+const [todos, setTodos] = useState([]);
+
+const handleAddTodo = () => {
+  setTodos([
+    ...todos,
+    {
+      id: new Date().toISOString(),
+      name: inputValue,
+      isCompleted: false,
+    },
+  ]);
+  setInputValue('');
+};
+
   return (
-    <View style={{ paddingHorizontal: 20 }}>
-      <Text style={{ fontSize: 40, fontWeight: 'bold', textAlign: 'center'}}>Todo List</Text>
-      <View style={{ flexDirection: 'row', marginTop: 20, gap: 20}}>
-        <TextInput 
-          style={{
-            borderWidth: 1,
-            paddingHorizontal: 10,
-            fontSize: 20,
-            flex: 1,
-            borderRadius: 5,
-            height: 40
-          }}
+    <View style={styles.container}>
+      <StatusBar style="auto" />
+
+      <View style={{justifyItems:"center", paddingHorizontal: 20, paddingTop: 10}}>
+        <Text style={{fontSize: 40, fontWeight:"bold", textAlign: "center", color: 'white' }}>
+            Todo List
+        </Text>
+
+        <View style={{flexDirection:"row", marginTop: 20, gap: 20}}>
+          <TodoInput
+            value={inputValue}
+            onChangeText={(value) => setInputValue(value)}
+          />
+          <CustomButton text='Add task' onPress={handleAddTodo} />
+        </View>
+
+        <FlatList
+          data={todos} 
+          keyExtractor={(item) => item.id}
+          renderItem={(({item: {name} }) =>
+            <Todo1 name={name} />
+          )}
         />
-        <TouchableOpacity style={{ borderWidth: 1, borderRadius: 5, width: 80, alignItems: 'center'}}>
-          <Text>Add task</Text>
-        </TouchableOpacity>
       </View>
-      <FlatList
-        data={TODOS}
-        keyExtractor={(item) => item.id}
-        renderItem={({{ item: {name} }} => <Todo name={name}/>)}
-      />
     </View>
   );
 }
@@ -34,9 +55,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
-    backgroundColor: "white",
-    paddingTop: Constants.statusBarHeight,
-
+    backgroundColor: "#2a6355",
+    paddingTop: Constants.statusBarHeight + 10,
+    padding: 15,
   },
 });
