@@ -1,0 +1,1 @@
+export {default as back1} from './back1.png'
