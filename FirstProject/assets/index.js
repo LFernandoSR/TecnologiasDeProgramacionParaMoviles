@@ -1,0 +1,1 @@
+export {default as graph1} from './graph1.png'
